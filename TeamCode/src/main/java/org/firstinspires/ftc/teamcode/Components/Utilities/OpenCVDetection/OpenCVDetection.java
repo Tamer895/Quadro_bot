@@ -1,5 +1,11 @@
 package org.firstinspires.ftc.teamcode.Components.Utilities.OpenCVDetection;
 
+<<<<<<< HEAD
+import com.acmerobotics.dashboard.config.Config;
+
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+=======
+>>>>>>> 7eae2633aec3f08b77255a6b1dd1ab48d7642513
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
@@ -7,6 +13,25 @@ import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 import org.openftc.easyopencv.OpenCvPipeline;
 
+<<<<<<< HEAD
+@Config
+public class OpenCVDetection extends OpenCvPipeline {
+
+    Telemetry telemetry;
+    Mat mat = new Mat();
+    public Location location;
+
+    public enum Location {
+        Left,
+        Right,
+        Middle,
+        Unknown,
+    }
+
+    public OpenCVDetection(Telemetry t) {
+        this.telemetry = t;
+    }
+=======
 public class OpenCVDetection extends OpenCvPipeline {
 
 //    Telemetry telemetry;
@@ -23,6 +48,7 @@ public class OpenCVDetection extends OpenCvPipeline {
 //    public OpenCVDetection(Telemetry t) {
 //        this.telemetry = t;
 //    }
+>>>>>>> 7eae2633aec3f08b77255a6b1dd1ab48d7642513
 
 
 
@@ -83,6 +109,16 @@ public class OpenCVDetection extends OpenCvPipeline {
         middle.release();
 
         if (leftValue >= rightValue && leftValue >= middleValue) {
+<<<<<<< HEAD
+            this.location = Location.Left;
+            telemetry.addData("Prop location:", "Right");
+        } else if (rightValue >= middleValue) {
+            this.location = Location.Right;
+            telemetry.addData("Prop location:", "Left");
+        } else {
+            this.location = Location.Middle;
+            telemetry.addData("Prop location:", "Middle");
+=======
             location = Location.Left;
 //            telemetry.addData("Prop location:", "Right");
         } else if (rightValue >= middleValue) {
@@ -91,6 +127,7 @@ public class OpenCVDetection extends OpenCvPipeline {
         } else {
             location = Location.Middle;
 //            telemetry.addData("Prop location:", "Middle");
+>>>>>>> 7eae2633aec3f08b77255a6b1dd1ab48d7642513
         }
 
 //        telemetry.update();
@@ -100,6 +137,24 @@ public class OpenCVDetection extends OpenCvPipeline {
         Scalar pixelColor = new Scalar(255, 255, 255);
         Scalar propColor = new Scalar(0, 0, 255);
 
+<<<<<<< HEAD
+        Imgproc.rectangle(mat, Left_ROI, this.location == Location.Left ? pixelColor : propColor);
+        Imgproc.rectangle(mat, Middle_ROI, this.location == Location.Middle ? pixelColor : propColor);
+        Imgproc.rectangle(mat, Right_ROI, this.location == Location.Right ? pixelColor : propColor);
+
+        return mat;
+    }
+
+    public Location getLocation() {
+        if(location == null) {
+            return Location.Unknown;
+        }
+        else {
+            return location;
+        }
+    }
+
+=======
         Imgproc.rectangle(mat, Left_ROI, location == Location.Left ? pixelColor : propColor);
         Imgproc.rectangle(mat, Middle_ROI, location == Location.Middle ? pixelColor : propColor);
         Imgproc.rectangle(mat, Right_ROI, location == Location.Right ? pixelColor : propColor);
@@ -112,4 +167,5 @@ public class OpenCVDetection extends OpenCvPipeline {
     }
 
 
+>>>>>>> 7eae2633aec3f08b77255a6b1dd1ab48d7642513
 }

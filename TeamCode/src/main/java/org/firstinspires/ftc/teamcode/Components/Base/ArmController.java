@@ -66,13 +66,21 @@ public class ArmController {
         if(gamepad2.dpad_up){
             telemetry.addData("Up: ", "True");
 
+<<<<<<< HEAD
+            power(0.75);
+=======
             power(0.5);
+>>>>>>> 7eae2633aec3f08b77255a6b1dd1ab48d7642513
 
             telemetry.update();
         } else if (gamepad2.dpad_down) {
             telemetry.addData("Down: ", "True");
 
+<<<<<<< HEAD
+            power(-0.75);
+=======
             power(-0.5);
+>>>>>>> 7eae2633aec3f08b77255a6b1dd1ab48d7642513
 
             telemetry.update();
         }
