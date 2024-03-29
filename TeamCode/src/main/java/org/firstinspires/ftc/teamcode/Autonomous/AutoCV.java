@@ -13,7 +13,7 @@ import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-
+//New changes :::))))))
 @Autonomous(name="auto")
 public class AutoCV extends LinearOpMode {
     OpenCvCamera webcam;
